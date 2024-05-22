@@ -13,11 +13,11 @@ def pull_git_repos_in_directory(directory):
         print(f"Current directory: {current_dir}")
 
         # 检查当前目录是否包含.git子目录，这表示它是一个Git仓库
-        if not os.path.exists(os.path.join(current_dir, '.git')):
+        if not os.path.exists(os.path.join(current_dir, ".git")):
             # 如果不是Git仓库，则遍历其子目录
             for subdir in os.listdir(current_dir):
                 # 忽略以 . 开头的子目录
-                if subdir.startswith('.'):
+                if subdir.startswith("."):
                     continue
                 subdir_path = os.path.join(current_dir, subdir)
                 if os.path.isdir(subdir_path):
@@ -32,11 +32,11 @@ def pull_git_repos_in_directory(directory):
 
         try:
             # 执行 git remote -v 命令
-            # subprocess.check_call(['git', 'remote', '-v'])
+            # subprocess.check_call(["git", "remote", "-v"])
             # 切换到develop分支
-            # subprocess.check_call(['git', 'checkout', 'develop'])
+            # subprocess.check_call(["git", "checkout", "develop"])
             # 执行git pull命令
-            subprocess.check_call(['git', 'pull'])
+            subprocess.check_call(["git", "pull"])
             print(f"Git pull successful in {current_dir}")
         except subprocess.CalledProcessError as e:
             # 如果git pull失败，则打印错误信息
